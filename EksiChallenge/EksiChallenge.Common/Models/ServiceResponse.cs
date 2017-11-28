@@ -19,7 +19,7 @@ namespace EksiChallenge.Common.Models
         public int TotalPage { get; set; }
 
         [JsonProperty(PropertyName = "totalResults")]
-        public int totalResults { get; set; }
+        public int TotalResults { get; set; }
 
         [JsonProperty(PropertyName = "data")]
         public List<Brewery> Breweries { get; set; }
