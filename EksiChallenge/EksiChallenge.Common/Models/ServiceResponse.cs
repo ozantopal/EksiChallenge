@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EksiChallenge.Common.Models
 {
+    /// <summary>
+    /// BreweryDb servisinden gelen responsea ait root object.
+    /// </summary>
     public class ServiceResponse
     {
         [JsonProperty(PropertyName = "currentPage")]

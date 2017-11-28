@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EksiChallenge.Common.Models
 {
+    /// <summary>
+    /// BreweryDb servisinden gelen üretici nesnesi.
+    /// </summary>
     public class Brewery
     {
         [JsonProperty(PropertyName = "id")]

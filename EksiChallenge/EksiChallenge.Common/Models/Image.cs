@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EksiChallenge.Common.Models
 {
+    /// <summary>
+    /// BreweryDb servisinden gelen Brewery nesnesine ait Image nesnesi.
+    /// </summary>
     public class Images
     {
         [JsonProperty(PropertyName = "icon")]
