@@ -1,4 +1,109 @@
-﻿@{
-    ViewBag.Title = "Ekşi Challenge";
+﻿@model EksiChallenge.Common.Models.ServiceResponse
+@{
+    ViewBag.Title = "Home Page";
+    var breweries = Model.Breweries;
+    var pagingList = (SelectList)ViewData["PagingList"];
+    string searchQuery = (string)ViewData["SearchQuery"];
 }
 
+<div class="container">
+    <div class="row">
+        <h1>Hello Ekşi Teknoloji</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.TextBox("ArananMarka", searchQuery, new { @class = "form-control", @placeHolder = "Aranan marka" })
+                </div>
+                <div class="col-md-3">
+                    <input type="button" value="Ara" onclick="SearchClick()" class="form-control" />
+                </div>
+            </div>            
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <label id="pageNumberLabel">Sayfa Numarası</label>
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownList("pageNumber", pagingList, new { @onchange = "PagingChange(this.value)", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @if (breweries != null && breweries.Count > 0)
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><a href="javascript:IsAscending()">Marka</a></th>
+                        <th>Kuruluş</th>
+                        <th>Görsel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var brewery in breweries)
+                    {
+                        <tr>
+                            <td>
+                                @if (!String.IsNullOrEmpty(brewery.Website))
+                                {
+                                    <a href="@brewery.Website">@brewery.Name</a>
+                                }
+                                else
+                                {
+                                    @brewery.Name
+                                }
+                            </td>
+                            <td>
+                                @if (!String.IsNullOrEmpty(brewery.Established))
+                                {
+                                    @brewery.Established
+                                }
+                            </td>
+                            <td>
+                                @if (brewery.Images != null)
+                                {
+                                    if (!String.IsNullOrEmpty(brewery.Images.Icon))
+                                    {
+                                        <img src="@brewery.Images.Icon" alt="@brewery.Name" />
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <label>Uygun içerik bulunamadı.</label>
+        }
+
+    </div>
+</div>
+
+<script>
+    function PagingChange(val) {
+        window.location.replace("/home/index?pageNumber=" + val);
+    }
+
+    function SearchClick() {
+        var searchQuery = document.getElementById("ArananMarka").value;
+
+        if (searchQuery.length > 0) {
+            window.location.replace("/home/index?searchQuery=" + searchQuery);
+        }       
+    }
+
+    function IsAscending() {
+        var url = document.URL;
+        if (!url.includes("isAscending=false")) {
+            window.location.replace("/home/index?isAscending=false");
+        } else {
+            window.location.replace("/home/index");
+        }
+    }
+</script>
