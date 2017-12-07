@@ -31,8 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Service.Inter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Service.Binary.IntegrationTest", "EksiChallenge.Service.Binary.IntegrationTest\EksiChallenge.Service.Binary.IntegrationTest.csproj", "{30CE4A30-950C-47EE-BAA5-5388115E76CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Business.BusinessV1.Test", "EksiChallenge.Business.BusinessV1.Test\EksiChallenge.Business.BusinessV1.Test.csproj", "{7F880C55-AFF4-40CE-8C86-353CC2090966}"
-EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Repositories.BreweryDbServiceRepository.Test", "EksiChallenge.Repositories.BreweryDbServiceRepository.Test\EksiChallenge.Repositories.BreweryDbServiceRepository.Test.csproj", "{664FA637-ABC5-4095-A687-6003DBEDD84E}"
 EndProject
 Global

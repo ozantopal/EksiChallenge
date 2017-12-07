@@ -9,6 +9,7 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository.Test
     public class BreweryRepositoryTest
     {
         private BreweryRepository repository;
+
         [TestInitialize]
         public void Setup()
         {
@@ -26,7 +27,7 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository.Test
                 IsAscending = true
             };
             var suffix = repository.GetQuerySuffix(sp);
-            Assert.AreEqual(suffix, "&p=1&order=");
+            Assert.AreEqual(suffix, "&name=****&p=1");
         }
     }
 }

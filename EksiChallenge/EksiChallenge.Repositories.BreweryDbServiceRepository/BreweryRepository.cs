@@ -51,6 +51,10 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository
                     result = String.Format("&name={0}", String.Concat(serviceParameter.SearchName, "*"));
                 }
             }
+            else
+            {
+                result = "&name=****";
+            }
             
 
             if (!serviceParameter.IsAscending)
