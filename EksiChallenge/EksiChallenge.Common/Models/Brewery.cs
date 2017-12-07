@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiChallenge.Common.Models
+namespace EksiChallenge.CrossCutting.Common.Models
 {
     /// <summary>
     /// BreweryDb servisinden gelen üretici nesnesi.
     /// </summary>
-    public class Brewery
+    public class Brewery : BaseEntity
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        //[JsonProperty(PropertyName = "id")]
+        //public string Id { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

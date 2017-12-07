@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiChallenge.Common.Models
+namespace EksiChallenge.CrossCutting.Common.Models
 {
     /// <summary>
     /// BreweryDb servisinden gelen Brewery nesnesine ait Image nesnesi.
