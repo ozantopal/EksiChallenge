@@ -32,22 +32,26 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository
             return result;
         }
 
-        private string GetQuerySuffix(ServiceParameter serviceParameter)
+        public string GetQuerySuffix(ServiceParameter serviceParameter)
         {
             // BreweryDb'nin 4 karakterin altını kabul etmemesinden
             // ötürü searchQuery'nin sonuna gerekli sayıda wildcard(*)
             // eklemesi yapılmıştır.
             string result = String.Empty;
 
-            if (serviceParameter.SearchName.Length < 4)
+            if (!String.IsNullOrEmpty(serviceParameter.SearchName))
             {
-                int countOfAsterisk = 4 - serviceParameter.SearchName.Length;
-                result = String.Format("&name={0}{1}", serviceParameter.SearchName, new String('*', countOfAsterisk));
+                if (serviceParameter.SearchName.Length < 4)
+                {
+                    int countOfAsterisk = 4 - serviceParameter.SearchName.Length;
+                    result = String.Format("&name={0}{1}", serviceParameter.SearchName, new String('*', countOfAsterisk));
+                }
+                else
+                {
+                    result = String.Format("&name={0}", String.Concat(serviceParameter.SearchName, "*"));
+                }
             }
-            else
-            {
-                result = String.Format("&name={0}", String.Concat(serviceParameter.SearchName, "*"));
-            }
+            
 
             if (!serviceParameter.IsAscending)
             {
@@ -59,9 +63,11 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository
                 result = String.Concat(result, String.Concat("&p=", serviceParameter.PageNumber));
             }
 
-            result = String.Concat(result, String.Concat("&order=", serviceParameter.OrderParam));
-
-
+            if (!String.IsNullOrEmpty(serviceParameter.OrderParam))
+            {
+                result = String.Concat(result, String.Concat("&order=", serviceParameter.OrderParam));
+            }
+            
             return result;
         }
 

@@ -20,3 +20,9 @@ EksiChallenge/EksiChallenge.Service.Binary/obj/
 EksiChallenge/EksiChallenge.Business.BusinessV1/bin/
 EksiChallenge/EksiChallenge.Service.Interface/bin/
 EksiChallenge/EksiChallenge.Service.Interface/obj/
+EksiChallenge/EksiChallenge.Service.Binary.IntegrationTest/bin/
+EksiChallenge/EksiChallenge.Service.Binary.IntegrationTest/obj/
+EksiChallenge/EksiChallenge.Business.BusinessV1.Test/obj/
+EksiChallenge/EksiChallenge.Business.BusinessV1.Test/bin/
+EksiChallenge/EksiChallenge.Repositories.BreweryDbServiceRepository.Test/bin/
+EksiChallenge/EksiChallenge.Repositories.BreweryDbServiceRepository.Test/obj/
