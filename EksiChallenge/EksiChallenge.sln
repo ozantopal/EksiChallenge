@@ -3,13 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Web", "EksiChallenge.Web\EksiChallenge.Web.csproj", "{7B9E59F2-FF05-4647-A15C-8F978B00E5D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Presentation.Web", "EksiChallenge.Web\EksiChallenge.Presentation.Web.csproj", "{7B9E59F2-FF05-4647-A15C-8F978B00E5D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Common", "EksiChallenge.Common\EksiChallenge.Common.csproj", "{1E28B9BC-7061-4247-9241-B61ECF64D2CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.CrossCutting.Common", "EksiChallenge.Common\EksiChallenge.CrossCutting.Common.csproj", "{1E28B9BC-7061-4247-9241-B61ECF64D2CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Core", "EksiChallenge.Core\EksiChallenge.Core.csproj", "{97F00747-B07C-42C4-AB9C-E6CD60501E07}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{4068A849-7D0C-4417-A164-7BFB8C085DEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Services", "EksiChallenge.Services\EksiChallenge.Services.csproj", "{5C5CD858-4467-4901-ADBA-466FB333D391}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{BB375CC8-A278-4DB8-8026-4530ACB3F5BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{443E61C2-BCBF-4B46-8A14-59A0322DD422}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{C0F9CC78-3375-434C-8513-21E43D67C37C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Repositories.Interfaces", "EksiChallenge.Repositories.Interfaces\EksiChallenge.Repositories.Interfaces.csproj", "{23200723-AA04-465A-9F81-FA35B6E38BDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Repositories.BreweryDbServiceRepository", "EksiChallenge.Repositories.BreweryDbServiceRepository\EksiChallenge.Repositories.BreweryDbServiceRepository.csproj", "{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Business.Interfaces", "EksiChallenge.Business.Interfaces\EksiChallenge.Business.Interfaces.csproj", "{B2506873-0032-4533-8346-19FFAF0B48EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Business.BusinessV1", "EksiChallenge.Business.BusinessV1\EksiChallenge.Business.BusinessV1.csproj", "{C5E29BCF-2A92-42ED-B311-288DD93D8060}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E982B2EA-B992-41F9-BA97-88B86065A893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Service.Binary", "EksiChallenge.Service.Binary\EksiChallenge.Service.Binary.csproj", "{41DB0C19-B778-467C-9464-E94861BCF9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiChallenge.Service.Interface", "EksiChallenge.Service.Interface\EksiChallenge.Service.Interface.csproj", "{C8E6CBB1-6294-4318-B539-BA9402E3473B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,17 +43,43 @@ Global
 		{1E28B9BC-7061-4247-9241-B61ECF64D2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E28B9BC-7061-4247-9241-B61ECF64D2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E28B9BC-7061-4247-9241-B61ECF64D2CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97F00747-B07C-42C4-AB9C-E6CD60501E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97F00747-B07C-42C4-AB9C-E6CD60501E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97F00747-B07C-42C4-AB9C-E6CD60501E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97F00747-B07C-42C4-AB9C-E6CD60501E07}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C5CD858-4467-4901-ADBA-466FB333D391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C5CD858-4467-4901-ADBA-466FB333D391}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C5CD858-4467-4901-ADBA-466FB333D391}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C5CD858-4467-4901-ADBA-466FB333D391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23200723-AA04-465A-9F81-FA35B6E38BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23200723-AA04-465A-9F81-FA35B6E38BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23200723-AA04-465A-9F81-FA35B6E38BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23200723-AA04-465A-9F81-FA35B6E38BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2506873-0032-4533-8346-19FFAF0B48EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2506873-0032-4533-8346-19FFAF0B48EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2506873-0032-4533-8346-19FFAF0B48EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2506873-0032-4533-8346-19FFAF0B48EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E29BCF-2A92-42ED-B311-288DD93D8060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E29BCF-2A92-42ED-B311-288DD93D8060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E29BCF-2A92-42ED-B311-288DD93D8060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E29BCF-2A92-42ED-B311-288DD93D8060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41DB0C19-B778-467C-9464-E94861BCF9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41DB0C19-B778-467C-9464-E94861BCF9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41DB0C19-B778-467C-9464-E94861BCF9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41DB0C19-B778-467C-9464-E94861BCF9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E6CBB1-6294-4318-B539-BA9402E3473B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E6CBB1-6294-4318-B539-BA9402E3473B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E6CBB1-6294-4318-B539-BA9402E3473B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E6CBB1-6294-4318-B539-BA9402E3473B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B9E59F2-FF05-4647-A15C-8F978B00E5D1} = {E982B2EA-B992-41F9-BA97-88B86065A893}
+		{1E28B9BC-7061-4247-9241-B61ECF64D2CB} = {C0F9CC78-3375-434C-8513-21E43D67C37C}
+		{23200723-AA04-465A-9F81-FA35B6E38BDE} = {BB375CC8-A278-4DB8-8026-4530ACB3F5BD}
+		{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435} = {BB375CC8-A278-4DB8-8026-4530ACB3F5BD}
+		{B2506873-0032-4533-8346-19FFAF0B48EC} = {4068A849-7D0C-4417-A164-7BFB8C085DEF}
+		{C5E29BCF-2A92-42ED-B311-288DD93D8060} = {4068A849-7D0C-4417-A164-7BFB8C085DEF}
+		{41DB0C19-B778-467C-9464-E94861BCF9FC} = {443E61C2-BCBF-4B46-8A14-59A0322DD422}
+		{C8E6CBB1-6294-4318-B539-BA9402E3473B} = {443E61C2-BCBF-4B46-8A14-59A0322DD422}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B7DDA7E-F318-458C-A8D6-BA481F5E09FA}

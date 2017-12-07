@@ -1,18 +1,20 @@
-﻿using EksiChallenge.Common.Models;
-using EksiChallenge.Core.IServices;
+﻿using EksiChallenge.CrossCutting.Common.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using EksiChallenge.Repositories.Interfaces;
+using EksiChallenge.Web.ServiceReferences;
 
 namespace EksiChallenge.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IBreweryService service;
-        public HomeController(IBreweryService service)
+        private IBreweryServiceProxy service;
+        public HomeController(IBreweryServiceProxy service)
         {
             this.service = service;
         }
@@ -29,10 +31,18 @@ namespace EksiChallenge.Web.Controllers
 
         public async Task<ActionResult> Index(string searchQuery = "",
                                               bool isAscending = true,
-                                              int pageNumber = 1)
+                                              int pageNumber = 1,
+                                              string orderParam = "")
         {
-            string apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["apiKey"];
-            ServiceResponse response = await service.GetBreweries(apiKey, searchQuery, isAscending, pageNumber);
+            ServiceParameter sp = new ServiceParameter
+            {
+                PageNumber = pageNumber,
+                SearchName = searchQuery,
+                OrderParam = orderParam,
+                IsAscending = isAscending
+            };
+
+            ServiceResponse<Brewery> response = await service.GetBreweries(sp);
 
             var pagingSelectList = GetPageSelectList(response.TotalPage, response.CurrentPage);
             ViewData["PagingList"] = pagingSelectList;

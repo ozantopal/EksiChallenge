@@ -11,8 +11,14 @@ namespace EksiChallenge.Repositories.BreweryDbServiceRepository
 {
     public class BreweryRepository : IRepository<Brewery>
     {
-        private const string apiKey = "7cb2eadce767ba3240e8250707cf471b";
-        private const string baseUrl = "http://api.brewerydb.com/v2/breweries";
+        private readonly string apiKey;
+        private readonly string baseUrl;
+
+        public BreweryRepository(string baseUrl, string apiKey)
+        {
+            this.apiKey = apiKey;
+            this.baseUrl = baseUrl;
+        }
 
         private async Task<RepositoryResponse> CallApi(string url)
         {

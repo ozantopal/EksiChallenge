@@ -1,8 +1,13 @@
-using EksiChallenge.Core.IServices;
-using EksiChallenge.Services.Services;
+using EksiChallenge.Business.BusinessV1;
+using EksiChallenge.Business.Interfaces;
+using EksiChallenge.CrossCutting.Common.Models;
+using EksiChallenge.Repositories.BreweryDbServiceRepository;
+using EksiChallenge.Repositories.Interfaces;
+using EksiChallenge.Web.ServiceReferences;
 using System;
-
+using System.Web.Configuration;
 using Unity;
+using Unity.Injection;
 
 namespace EksiChallenge.Web
 {
@@ -44,7 +49,13 @@ namespace EksiChallenge.Web
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IBreweryService, BreweryService>();
+
+            string Url = WebConfigurationManager.AppSettings["apiUrl"];
+            string apiKey = WebConfigurationManager.AppSettings["apiKey"];
+            object[] parameters = { Url, apiKey };
+            container.RegisterType<IRepository<Brewery>, BreweryRepository>(new InjectionConstructor(parameters));
+            container.RegisterType<IBreweryServiceProxy, BinaryBreweryServiceProxy>();
+            container.RegisterType<IBreweryBusiness, BreweryBusiness>();
         }
     }
 }

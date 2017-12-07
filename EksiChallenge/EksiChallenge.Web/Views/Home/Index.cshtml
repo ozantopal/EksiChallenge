@@ -1,7 +1,8 @@
-﻿@model EksiChallenge.Common.Models.ServiceResponse
+﻿@using EksiChallenge.CrossCutting.Common.Models
+@model ServiceResponse<Brewery>
 @{
     ViewBag.Title = "Home Page";
-    var breweries = Model.Breweries;
+    var breweries = Model.Data;
     var pagingList = (SelectList)ViewData["PagingList"];
     string searchQuery = (string)ViewData["SearchQuery"];
 }

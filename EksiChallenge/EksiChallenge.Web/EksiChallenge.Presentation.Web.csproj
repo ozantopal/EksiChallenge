@@ -161,6 +161,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceReferences\BinaryBreweryServiceProxy.cs" />
+    <Compile Include="ServiceReferences\IBreweryServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -216,17 +218,29 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EksiChallenge.Common\EksiChallenge.Common.csproj">
+    <ProjectReference Include="..\EksiChallenge.Business.BusinessV1\EksiChallenge.Business.BusinessV1.csproj">
+      <Project>{C5E29BCF-2A92-42ED-B311-288DD93D8060}</Project>
+      <Name>EksiChallenge.Business.BusinessV1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EksiChallenge.Business.Interfaces\EksiChallenge.Business.Interfaces.csproj">
+      <Project>{B2506873-0032-4533-8346-19FFAF0B48EC}</Project>
+      <Name>EksiChallenge.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EksiChallenge.Common\EksiChallenge.CrossCutting.Common.csproj">
       <Project>{1E28B9BC-7061-4247-9241-B61ECF64D2CB}</Project>
-      <Name>EksiChallenge.Common</Name>
+      <Name>EksiChallenge.CrossCutting.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EksiChallenge.Core\EksiChallenge.Core.csproj">
-      <Project>{97F00747-B07C-42C4-AB9C-E6CD60501E07}</Project>
-      <Name>EksiChallenge.Core</Name>
+    <ProjectReference Include="..\EksiChallenge.Repositories.BreweryDbServiceRepository\EksiChallenge.Repositories.BreweryDbServiceRepository.csproj">
+      <Project>{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}</Project>
+      <Name>EksiChallenge.Repositories.BreweryDbServiceRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EksiChallenge.Services\EksiChallenge.Services.csproj">
-      <Project>{5C5CD858-4467-4901-ADBA-466FB333D391}</Project>
-      <Name>EksiChallenge.Services</Name>
+    <ProjectReference Include="..\EksiChallenge.Repositories.Interfaces\EksiChallenge.Repositories.Interfaces.csproj">
+      <Project>{23200723-AA04-465A-9F81-FA35B6E38BDE}</Project>
+      <Name>EksiChallenge.Repositories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EksiChallenge.Service.Binary\EksiChallenge.Service.Binary.csproj">
+      <Project>{41DB0C19-B778-467C-9464-E94861BCF9FC}</Project>
+      <Name>EksiChallenge.Service.Binary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

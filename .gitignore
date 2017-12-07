@@ -8,3 +8,15 @@ EksiChallenge/packages/
 EksiChallenge/EksiChallenge.Common/bin/
 EksiChallenge/EksiChallenge.Core/bin/
 EksiChallenge/EksiChallenge.Services/bin/
+EksiChallenge/EksiChallenge.Business.BusinessV1/obj/
+EksiChallenge/EksiChallenge.Business.Interfaces/bin/
+EksiChallenge/EksiChallenge.Business.Interfaces/obj/
+EksiChallenge/EksiChallenge.Repositories.BreweryDbServiceRepository/bin/
+EksiChallenge/EksiChallenge.Repositories.BreweryDbServiceRepository/obj/
+EksiChallenge/EksiChallenge.Repositories.Interfaces/bin/
+EksiChallenge/EksiChallenge.Repositories.Interfaces/obj/
+EksiChallenge/EksiChallenge.Service.Binary/bin/
+EksiChallenge/EksiChallenge.Service.Binary/obj/
+EksiChallenge/EksiChallenge.Business.BusinessV1/bin/
+EksiChallenge/EksiChallenge.Service.Interface/bin/
+EksiChallenge/EksiChallenge.Service.Interface/obj/
