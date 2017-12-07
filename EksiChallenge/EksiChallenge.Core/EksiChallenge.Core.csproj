@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EksiChallenge.Common\EksiChallenge.Common.csproj">
+    <ProjectReference Include="..\EksiChallenge.Common\EksiChallenge.CrossCutting.Common.csproj">
       <Project>{1E28B9BC-7061-4247-9241-B61ECF64D2CB}</Project>
-      <Name>EksiChallenge.Common</Name>
+      <Name>EksiChallenge.CrossCutting.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

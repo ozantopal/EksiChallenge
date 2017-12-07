@@ -1,4 +1,4 @@
-﻿using EksiChallenge.Common.Models;
+﻿using EksiChallenge.CrossCutting.Common.Models;
 using EksiChallenge.Core.IServices;
 using Newtonsoft.Json;
 using System;
@@ -12,14 +12,14 @@ namespace EksiChallenge.Services.Services
 {
     public class BreweryService : IBreweryService
     {
-        private async Task<ServiceResponse> CallApi(string url)
+        private async Task<RepositoryResponse> CallApi(string url)
         {
             HttpClient client = new HttpClient();
 
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             HttpResponseMessage response = await client.GetAsync(url);
             string rawData = await response.Content.ReadAsStringAsync();
-            ServiceResponse result = JsonConvert.DeserializeObject<ServiceResponse>(rawData);
+            RepositoryResponse result = JsonConvert.DeserializeObject<RepositoryResponse>(rawData);
 
             return result;
         }

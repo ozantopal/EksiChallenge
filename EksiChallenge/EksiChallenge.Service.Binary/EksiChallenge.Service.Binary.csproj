@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C5CD858-4467-4901-ADBA-466FB333D391}</ProjectGuid>
+    <ProjectGuid>{41DB0C19-B778-467C-9464-E94861BCF9FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EksiChallenge.Services</RootNamespace>
-    <AssemblyName>EksiChallenge.Services</AssemblyName>
+    <RootNamespace>EksiChallenge.Service.Binary</RootNamespace>
+    <AssemblyName>EksiChallenge.Service.Binary</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,21 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreweryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BreweryService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\EksiChallenge.Business.Interfaces\EksiChallenge.Business.Interfaces.csproj">
+      <Project>{B2506873-0032-4533-8346-19FFAF0B48EC}</Project>
+      <Name>EksiChallenge.Business.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EksiChallenge.Common\EksiChallenge.CrossCutting.Common.csproj">
       <Project>{1E28B9BC-7061-4247-9241-B61ECF64D2CB}</Project>
       <Name>EksiChallenge.CrossCutting.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EksiChallenge.Core\EksiChallenge.Core.csproj">
-      <Project>{97F00747-B07C-42C4-AB9C-E6CD60501E07}</Project>
-      <Name>EksiChallenge.Core</Name>
+    <ProjectReference Include="..\EksiChallenge.Service.Interface\EksiChallenge.Service.Interface.csproj">
+      <Project>{C8E6CBB1-6294-4318-B539-BA9402E3473B}</Project>
+      <Name>EksiChallenge.Service.Interface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

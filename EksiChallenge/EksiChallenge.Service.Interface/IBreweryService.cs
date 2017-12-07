@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiChallenge.Core.IServices
+namespace EksiChallenge.Service.Interface
 {
     public interface IBreweryService
     {
-        Task<ServiceResponse> GetBreweries(string apiKey, string searchName, bool isAscending, int pageNumber);
+        Task<ServiceResponse<Brewery>> GetBreweries(ServiceParameter parameter);
     }
+
 }
