@@ -27,20 +27,19 @@ namespace EksiChallenge.Business.BusinessV1.Test
             };
 
             IBreweryBusiness business;
-            
-            object[] parameters = { "http://api.brewerydb.com/v2/breweries", "{YOUR_APIKEY_WILL_BE_HERE}" };
 
-            var repo = Substitute.For<BreweryRepository>(parameters);
-            repo.Get(sp).Returns(Task.FromResult<ServiceResponse<Brewery>>(new ServiceResponse<Brewery>()
+            //object[] parameters = { "http://api.brewerydb.com/v2/breweries", "{YOUR_APIKEY_WILL_BE_HERE}" };
+            var response = new ServiceResponse<Brewery>()
             {
                 Data = new List<Brewery>(),
                 TotalPage = 5,
                 CurrentPage = 6,
-            }
-            ));
-
+            };
+            var repo = Substitute.For<IRepository<Brewery>>();
+            repo.Get(sp).Returns(Task.FromResult<ServiceResponse<Brewery>>(response));
             business = new BreweryBusiness(repo);
-            var result = business.GetBreweries(sp);
+            business.GetBreweries(sp);
         }
     }
+
 }

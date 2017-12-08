@@ -18,7 +18,13 @@ namespace EksiChallenge.Business.BusinessV1
         }
         public async Task<ServiceResponse<Brewery>> GetBreweries(ServiceParameter parameter)
         {
-            return await this.breweryRepository.Get(parameter);
+            var result = await this.breweryRepository.Get(parameter);
+            if (result.TotalPage < result.CurrentPage)
+            {
+                throw new InvalidOperationException();
+            }
+            return result;
         }
+
     }
 }
