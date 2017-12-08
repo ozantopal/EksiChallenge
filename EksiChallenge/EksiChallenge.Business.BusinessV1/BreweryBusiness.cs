@@ -1,6 +1,5 @@
 ﻿using EksiChallenge.Business.Interfaces;
 using EksiChallenge.CrossCutting.Common.Models;
-using EksiChallenge.Repositories.BreweryDbServiceRepository;
 using EksiChallenge.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace EksiChallenge.Business.BusinessV1
     public class BreweryBusiness : IBreweryBusiness
     {
         private readonly IRepository<Brewery> breweryRepository;
-        public BreweryBusiness(BreweryRepository breweryRepository)
+        public BreweryBusiness(IRepository<Brewery> breweryRepository)
         {
             this.breweryRepository = breweryRepository;
         }
