@@ -7,6 +7,7 @@ EksiChallenge'ın çalışması için bilgisayarınzda .NET Framework v4.6.1'in 
 ## İyileştirmeler
 EksiChallenge'ın ilk reviewda aldığı değişiklik ve iyileştirme taleplerine uygun olarak aşağıdaki işlemler yapılmıştır;
 
+* Data access için repository pattern uygulandı.
 * Proje mimarisi N-Layer architecture gereksinimlerine göre düzenlendi. 
 * Namespacelerde uygun bir hiyerarşi takip edildi.
 * Review öncesindeki çoklu sorumluluklar birbirinden ayrıldı. Service datayı almak için kendi altındaki Business katmanı aracılığıyla Repository'ye ulaşır hale geldi.
