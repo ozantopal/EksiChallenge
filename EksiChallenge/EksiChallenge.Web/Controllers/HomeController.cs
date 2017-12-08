@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using EksiChallenge.Repositories.Interfaces;
 using EksiChallenge.Web.ServiceReferences;
+using EksiChallenge.Web.Models;
+using System.Web.Configuration;
 
 namespace EksiChallenge.Web.Controllers
 {
@@ -43,13 +45,21 @@ namespace EksiChallenge.Web.Controllers
             };
 
             ServiceResponse<Brewery> response = await service.GetBreweries(sp);
-
             var pagingSelectList = GetPageSelectList(response.TotalPage, response.CurrentPage);
-            ViewData["PagingList"] = pagingSelectList;
-            ViewData["SearchQuery"] = searchQuery;
-            ViewData["IsAscending"] = isAscending;
+            string requestUrl = String.Format("/{0}/{1}", WebConfigurationManager.AppSettings["controllerName"],
+                                                          WebConfigurationManager.AppSettings["actionName"]);
 
-            return View(response);
+            BreweryViewModel<Brewery> result = new BreweryViewModel<Brewery>
+            {
+                PagingList = pagingSelectList,
+                SearchQuery = searchQuery,
+                RequestUrl = requestUrl,
+                CurrentPage = response.CurrentPage,
+                TotalPage = response.TotalPage,
+                Data = response.Data
+            };
+            
+            return View(result);
         }
     }
 }

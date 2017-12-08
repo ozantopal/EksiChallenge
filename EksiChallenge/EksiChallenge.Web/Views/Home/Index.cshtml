@@ -1,13 +1,15 @@
-﻿@using EksiChallenge.CrossCutting.Common.Models
-@model ServiceResponse<Brewery>
+﻿@using EksiChallenge.Web.Models;
+@using EksiChallenge.CrossCutting.Common.Models;
+@model BreweryViewModel<Brewery>
 @{
     ViewBag.Title = "Home Page";
     var breweries = Model.Data;
-    var pagingList = (SelectList)ViewData["PagingList"];
-    string searchQuery = (string)ViewData["SearchQuery"];
+    var pagingList = Model.PagingList;
+    string searchQuery = Model.SearchQuery;
 }
 
 <div class="container">
+    @Html.Hidden("RequestUrl", Model.RequestUrl, new { @id = "RequestUrl" })
     <div class="row">
         <h1>Hello Ekşi Teknoloji</h1>
     </div>
@@ -40,7 +42,7 @@
                 <thead>
                     <tr>
                         <th><a href="javascript:IsAscending()">Marka</a></th>
-                        <th>Kuruluş</th>
+                        <th><a href="javascript:OrderEstablish()">Kuruluş</a></th>
                         <th>Görsel</th>
                     </tr>
                 </thead>
@@ -87,24 +89,35 @@
 </div>
 
 <script>
+    var requestUrl = document.getElementById("RequestUrl").value;
+
     function PagingChange(val) {
-        window.location.replace("/home/index?pageNumber=" + val);
+        window.location.replace(requestUrl + "?pageNumber=" + val);
     }
 
     function SearchClick() {
         var searchQuery = document.getElementById("ArananMarka").value;
 
         if (searchQuery.length > 0) {
-            window.location.replace("/home/index?searchQuery=" + searchQuery);
+            window.location.replace(requestUrl + "?searchQuery=" + searchQuery);
         }       
     }
 
     function IsAscending() {
         var url = document.URL;
         if (!url.includes("isAscending=false")) {
-            window.location.replace("/home/index?isAscending=false");
+            window.location.replace(requestUrl + "?isAscending=false");
         } else {
-            window.location.replace("/home/index");
+            window.location.replace(requestUrl);
+        }
+    }
+
+    function OrderEstablish() {
+        var url = document.URL;
+        if (!url.includes("isAscending=false")) {
+            window.location.replace(requestUrl + "?orderParam=established&isAscending=false");
+        } else {
+            window.location.replace(requestUrl + "?orderParam=established&isAscending=true");
         }
     }
 </script>
