@@ -16,9 +16,9 @@ namespace EksiChallenge.Business.BusinessV1
         {
             this.breweryRepository = breweryRepository;
         }
-        public Task<ServiceResponse<Brewery>> GetBreweries(ServiceParameter parameter)
+        public async Task<ServiceResponse<Brewery>> GetBreweries(ServiceParameter parameter)
         {
-            return this.breweryRepository.Get(parameter);
+            return await this.breweryRepository.Get(parameter);
         }
     }
 }

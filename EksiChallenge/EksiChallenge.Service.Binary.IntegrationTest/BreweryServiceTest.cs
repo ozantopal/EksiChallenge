@@ -4,18 +4,21 @@ using EksiChallenge.CrossCutting.Common.Models;
 using EksiChallenge.Services.Services;
 using EksiChallenge.Business.BusinessV1;
 using EksiChallenge.Repositories.BreweryDbServiceRepository;
+using EksiChallenge.Repositories.Interfaces;
+using EksiChallenge.Business.Interfaces;
+using EksiChallenge.Service.Interface;
 
 namespace EksiChallenge.Service.Binary.IntegrationTest
 {
     [TestClass]
     public class BreweryServiceTest
     {
-        private BreweryService service;
+        private IBreweryService service;
         
         public BreweryServiceTest()
         {
-            BreweryRepository breweryRepository = new BreweryRepository("http://api.brewerydb.com/v2/breweries", "{YOUR_APIKEY_WILL_BE_HERE}");
-            BreweryBusiness breweryBusiness = new BreweryBusiness(breweryRepository);
+            IRepository<Brewery> breweryRepository = new BreweryRepository("http://api.brewerydb.com/v2/breweries", "{YOUR_APIKEY_WILL_BE_HERE}");
+            IBreweryBusiness breweryBusiness = new BreweryBusiness(breweryRepository);
             this.service = new BreweryService(breweryBusiness);
         }
 

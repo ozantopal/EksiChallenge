@@ -71,6 +71,10 @@
       <Project>{A0EF2F11-5A8F-4C57-BBFC-0AF383D2C435}</Project>
       <Name>EksiChallenge.Repositories.BreweryDbServiceRepository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EksiChallenge.Repositories.Interfaces\EksiChallenge.Repositories.Interfaces.csproj">
+      <Project>{23200723-AA04-465A-9F81-FA35B6E38BDE}</Project>
+      <Name>EksiChallenge.Repositories.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EksiChallenge.Service.Binary\EksiChallenge.Service.Binary.csproj">
       <Project>{41DB0C19-B778-467C-9464-E94861BCF9FC}</Project>
       <Name>EksiChallenge.Service.Binary</Name>
